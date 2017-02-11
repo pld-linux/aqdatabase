@@ -23,8 +23,6 @@ Requires:	gwenhywfar >= 4
 #BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		ver_cmake	%(echo %{version} | cut -d. -f 1-2)
-
 %description
 AqDatabase - database used by AqFinance.
 
