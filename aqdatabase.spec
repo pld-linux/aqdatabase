@@ -27,7 +27,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 AqDatabase - database used by AqFinance.
 
 %description -l pl.UTF-8
-AqDatabase - baza danych wykorzystywana przez AqFinance
+AqDatabase - baza danych wykorzystywana przez AqFinance.
 
 %package devel
 Summary:	Header files for AqDatabase library
