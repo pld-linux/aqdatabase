@@ -5,22 +5,23 @@
 Summary:	AqDatabase - database used by AqFinance
 Summary(pl.UTF-8):	AqDatabase - baza danych wykorzystywana przez AqFinance
 Name:		aqdatabase
-Version:	1.0.0
+Version:	1.0.15
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 # https://www.aquamaniac.de/sites/download/packages.php
-Source0:	https://www.aquamaniac.de/sites/download/download.php?package=14&release=200&file=01&dummy=/%{name}-%{version}.tar.gz
-# Source0-md5:	38042ee1e62b58b2521de55672b5b483
+#Source0:	https://www.aquamaniac.de/sites/download/download.php?package=14&release=200&file=01&dummy=/%{name}-%{version}.tar.gz
+Source0:	https://www.aquamaniac.de/rdm/attachments/download/346/%{name}-%{version}.tar.gz
+# Source0-md5:	63d6af04a3fc994dd79e17fa8620d30f
 Patch0:		%{name}-pc.patch
 URL:		https://www.aquamaniac.de/sites/aqfinance/
 #BuildRequires:	autoconf >= 2.60
 #BuildRequires:	automake
 BuildRequires:	gettext-tools
 BuildRequires:	gmp-devel
-BuildRequires:	gwenhywfar-devel >= 4
-Requires:	gwenhywfar >= 4
+BuildRequires:	gwenhywfar-devel >= 5.2.0.0
 #BuildRequires:	libtool
+Requires:	gwenhywfar >= 4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -88,6 +89,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README
+%attr(755,root,root) %{_bindir}/aqdbtool
+%attr(755,root,root) %{_bindir}/aqfscheck
 %attr(755,root,root) %{_libdir}/libaqdatabase.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libaqdatabase.so.1
 
