@@ -57,7 +57,7 @@ Statyczna biblioteka AqDatabase.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 # workaround to build without headers installed
 install -d aqdatabase
