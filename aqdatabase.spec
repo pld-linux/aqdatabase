@@ -19,6 +19,7 @@ URL:		https://www.aquamaniac.de/rdm/projects/aqdatabase
 BuildRequires:	gettext-tools
 BuildRequires:	gmp-devel
 BuildRequires:	gwenhywfar-devel >= 5.2.0.0
+BuildRequires:	pkgconfig
 #BuildRequires:	libtool
 Requires:	gwenhywfar >= 4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,12 +59,6 @@ Statyczna biblioteka AqDatabase.
 %setup -q
 %patch -P0 -p1
 
-# workaround to build without headers installed
-install -d aqdatabase
-cd aqdatabase
-ln -sf ../src/lib/*.h .
-ln -sf ../src/*.h .
-
 %build
 %configure \
 	%{!?with_static_libs:--disable-static}
@@ -90,14 +85,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README
 %attr(755,root,root) %{_bindir}/aqdbtool
 %attr(755,root,root) %{_bindir}/aqfscheck
-%attr(755,root,root) %{_libdir}/libaqdatabase.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libaqdatabase.so.1
+%{_libdir}/libaqdatabase.so.*.*.*
+%ghost %{_libdir}/libaqdatabase.so.1
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libaqdatabase.so
+%{_libdir}/libaqdatabase.so
 %{_includedir}/aqdatabase
-%{_datadir}/aqdatabase
+%dir %{_datadir}/aqdatabase
+%{_datadir}/aqdatabase/typemaker2
 %{_pkgconfigdir}/aqdatabase.pc
 
 %if %{with static_libs}
