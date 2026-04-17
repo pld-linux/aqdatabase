@@ -9,12 +9,11 @@ Version:	1.0.15
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-# https://www.aquamaniac.de/sites/download/packages.php
-#Source0:	https://www.aquamaniac.de/sites/download/download.php?package=14&release=200&file=01&dummy=/%{name}-%{version}.tar.gz
+#Source0Download: https://www.aquamaniac.de/rdm/projects/aqdatabase/files
 Source0:	https://www.aquamaniac.de/rdm/attachments/download/346/%{name}-%{version}.tar.gz
 # Source0-md5:	63d6af04a3fc994dd79e17fa8620d30f
 Patch0:		%{name}-pc.patch
-URL:		https://www.aquamaniac.de/sites/aqfinance/
+URL:		https://www.aquamaniac.de/rdm/projects/aqdatabase
 #BuildRequires:	autoconf >= 2.60
 #BuildRequires:	automake
 BuildRequires:	gettext-tools
